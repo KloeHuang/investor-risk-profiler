@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+
+# Streamlit cache
+.streamlit/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# macOS metadata
+.DS_Store
+
+# User-generated data (e.g., app logs or local CSVs)
+user_feedback.csv
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+misc.xml
+modules.xml
+
+# VS Code settings
+.vscode/
+
+# System files
+Thumbs.db
