@@ -13,6 +13,26 @@ This MVP is developed for the FinTech: Business Models and Applications course a
 
 ---
 
+## 📋 Questionnaire Design Rationale
+
+The questionnaire design is grounded in academic frameworks:
+
+- So, M. K. P. (2021). *Robo-Advising Risk Profiling through Content Analysis for Sustainable Development* ([Sustainability, 13(3), 1306](https://doi.org/10.3390/su13031306))  
+- Lippi, A., & Poli, F. (2025). *ESG in Investor Profiling* ([IJBM, 43(1)](https://doi.org/10.1108/IJBM-11-2023-0609))
+
+---
+
+## 📊 Visualizations Explained
+
+1. **ETF-Specific Portfolio Simulation**  
+   After selecting an ETF (e.g., SPY, QQQ), the app simulates how a lump-sum investment would have grown over a chosen time frame, using 5-year historical price data.  
+   - Purpose: Demonstrates real market volatility and long-term return potential for each fund.
+
+2. **Recommended Portfolio Simulation**  
+   Based on the user’s risk category, a weighted ETF combination (e.g., 60% QQQ + 40% EEM for aggressive profiles) is simulated.  
+   - Purpose: Shows how a balanced portfolio might perform and educates users on asset allocation concepts.
+---
+
 ## 🧠 Technology Stack
 
 - **Programming Language**: Python
