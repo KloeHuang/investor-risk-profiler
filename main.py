@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import yfinance as yf
 import pandas as pd
+import datetime
 
 st.set_page_config(page_title="Investor Risk Profiler", layout="centered")
 st.title("📊 Investor Risk Profiling Questionnaire")
@@ -102,7 +103,7 @@ if st.session_state.submitted:
     initial_investment = st.number_input("Initial Investment Amount (EUR)", min_value=1000, value=10000, step=500)
     investment_years = st.slider("Investment Duration (Years)", 1, 30, 10)
 
-    # Fix: Move dictionary definition to correct position
+    # Move dictionary definition to correct position
     profile_to_etfs = {
         "🟦 Conservative": ["VEA (Developed Markets ex-US)", "VTI (Total US Market)"],
         "🟩 Moderate": ["SPY (S&P 500)", "VTI (Total US Market)"],
@@ -118,7 +119,7 @@ if st.session_state.submitted:
         "EEM (Emerging Markets)": "EEM"
     }
 
-    # Fix: Get recommended ETF default value
+    # Get recommended ETF default value
     recommended_labels = profile_to_etfs.get(st.session_state.profile, ["SPY (S&P 500)"])
     recommended_default = recommended_labels[0]
     st.markdown(
@@ -137,7 +138,7 @@ if st.session_state.submitted:
         for name, reason in etf_reasons.items():
             st.markdown(f"**{name}**: {reason}")
 
-    # Fix: Ensure default selection is in options list
+    # Ensure default selection is in options list
     default_index = 0
     if recommended_default in etf_options:
         default_index = list(etf_options.keys()).index(recommended_default)
@@ -157,19 +158,16 @@ if st.session_state.submitted:
         price_data = ticker.history(period="5y")["Close"]
         info = ticker.info
 
-        # 添加数据验证
+        # add varification
         if price_data.empty:
             st.warning(f"No price data available for {etf_symbol}")
         else:
             st.caption(
                 f"Data source: {etf_symbol} historical prices from Yahoo Finance via yfinance API. Past performance does not guarantee future results.")
 
-            # 安全地获取信息
+            # get info safely
             short_name = info.get('shortName', etf_symbol)
             long_summary = info.get('longBusinessSummary', 'No description available.')
-            # 截断过长的描述
-            if len(long_summary) > 300:
-                long_summary = long_summary[:300] + "..."
 
             st.markdown(f"**{short_name}** — {long_summary}")
 
@@ -218,7 +216,7 @@ if st.session_state.submitted:
             f"⚠️ Failed to retrieve data for {etf_symbol}. Please try another ETF or check your internet connection.")
         st.error(f"Error details: {str(e)}")
 
-    # 🎯 Recommended Portfolio Simulation
+    # Recommended Portfolio Simulation
     try:
         st.subheader("📊 Simulated Recommended Portfolio")
 
